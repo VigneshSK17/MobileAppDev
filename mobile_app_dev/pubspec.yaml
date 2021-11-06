@@ -30,8 +30,9 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # Adobe XD
-  adobe_xd: ^2.0.0+1
+  # Fonts
+  # Google Fonts
+  google_fonts: ^2.1.0
 
   # Splash Screen
   # https://www.freecodecamp.org/news/how-to-add-a-splash-screen-in-flutter-app/
@@ -40,6 +41,14 @@ dependencies:
   # Flutter Platform Widgets
   # https://pub.dev/packages/flutter_platform_widgets
   flutter_platform_widgets: ^1.9.5
+
+  # Theming
+  # Flex Color Scheme
+  flex_color_scheme: ^3.0.1
+
+  # Google Nav Bar
+  # https://pub.dev/packages/google_nav_bar
+  google_nav_bar: ^5.0.5
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
