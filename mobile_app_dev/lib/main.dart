@@ -81,12 +81,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 viewportFraction: 0.8,
                 scale: 0.9,
                 pagination: SwiperPagination(),
-                control: SwiperControl(),
+                // control: SwiperControl(),
+                control: null,
                 autoplay: true,
               ),
             ),
-            Expanded(child: Text('Filllller')),
-            Expanded(child: Text('Calendar')),
+            Expanded(flex: 2, child: Text('Filllller')),
+            Expanded(flex: 4, child: Text('Calendar')),
           ],
         ));
   }
@@ -132,7 +133,7 @@ class BaseScaffold extends StatelessWidget {
                                           onDismissed: (direction) {
                                             items.removeAt(index);
                                           },
-                                          child: new ListTile(
+                                          child: ListTile(
                                               title: Text('${items[index]}'),
                                               subtitle: Text(
                                                   '${items[index]} Info')));
@@ -187,14 +188,10 @@ class BaseScaffold extends StatelessWidget {
                 break;
             }
           },
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today_sharp),
-              label: 'Planner',
-            ),
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.calendar_today_sharp), label: 'Planner'),
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.school), label: 'Teachers'),
+            BottomNavigationBarItem(icon: Icon(Icons.school), label: 'Teachers'),
           ]),
       // bottomNavigationBar: GNav(
       //   selectedIndex: selectedIndex,
