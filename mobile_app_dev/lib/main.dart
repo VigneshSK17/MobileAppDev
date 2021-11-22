@@ -1,3 +1,4 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -62,7 +63,32 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return BaseScaffold(1, Text('Home Page'), new Text('Hi'));
+    return BaseScaffold(
+        1,
+        Text('Home Page'),
+        Column(
+          children: <Widget>[
+            Expanded(
+              child: Swiper(
+                itemCount: 3,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    child: Center(
+                      child: Text('Page $index'),
+                    ),
+                  );
+                },
+                viewportFraction: 0.8,
+                scale: 0.9,
+                pagination: SwiperPagination(),
+                control: SwiperControl(),
+                autoplay: true,
+              ),
+            ),
+            Expanded(child: Text('Filllller')),
+            Expanded(child: Text('Calendar')),
+          ],
+        ));
   }
 }
 
