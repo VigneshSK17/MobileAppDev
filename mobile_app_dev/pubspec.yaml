@@ -30,6 +30,32 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Fonts
+  google_fonts: ^2.1.0
+
+  # Splash Screen
+  # https://www.freecodecamp.org/news/how-to-add-a-splash-screen-in-flutter-app/
+  splashscreen: ^1.3.5
+
+  # Theming
+  # Flex Color Scheme
+  flex_color_scheme: ^3.0.1
+
+  # Google Nav Bar
+  # https://pub.dev/packages/google_nav_bar
+  google_nav_bar: ^5.0.5
+
+  # Card Swiper
+  card_swiper: ^1.0.4
+
+  # Gaps
+  gap: ^2.0.0
+
+  # Search Bar
+  # material_floating_search_bar: ^0.3.6
+
+  # Settings UI
+  settings_ui: ^1.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
