@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:material_floating_search_bar/material_floating_search_bar.dart';
+import 'package:mobile_app_dev/widgets/teacher_card2.dart';
 import '../widgets/teacher_card.dart';
 
 class TeacherScreen extends StatefulWidget {
@@ -21,25 +23,19 @@ class _TeacherScreenState extends State<TeacherScreen>
   }
 
   var orientation;
+  List<Widget> exampleCards = [];
 
   @override
   Widget build(BuildContext context) {
+    for (int i = 0; i < 10; i++) {
+      exampleCards.add(
+        teacherCard2(testImage, 'Mrs. Joe Johnson', 'English', 1000,
+            'hi@gmail.com', 'joejohnson.weebly.com', context),
+      );
+    }
+
+    // TODO: Add search bar to search through the teachers Maybe add filters if time. Maybe use material_floating_search_bar package
     return Container(
-        child: SingleChildScrollView(
-            child: Column(children: [
-      // TODO: Add search bar to search through the teachers Maybe add filters if time. Maybe use material_floating_search_bar package
-      teacherCard(testImage, 'Mrs. Joe Johnson', 'English', 1000,
-          'hi@gmail.com', 'joejohnson.weebly.com', _controller, context),
-      teacherCard(testImage, 'Mrs. Joe Johnson', 'English', 1000,
-          'hi@gmail.com', 'joejohnson.weebly.com', _controller, context),
-      teacherCard(testImage, 'Mrs. Joe Johnson', 'English', 1000,
-          'hi@gmail.com', 'joejohnson.weebly.com', _controller, context),
-      teacherCard(testImage, 'Mrs. Joe Johnson', 'English', 1000,
-          'hi@gmail.com', 'joejohnson.weebly.com', _controller, context),
-      teacherCard(testImage, 'Mrs. Joe Johnson', 'English', 1000,
-          'hi@gmail.com', 'joejohnson.weebly.com', _controller, context),
-      teacherCard(testImage, 'Mrs. Joe Johnson', 'English', 1000,
-          'hi@gmail.com', 'joejohnson.weebly.com', _controller, context),
-    ])));
+        child: SingleChildScrollView(child: Column(children: exampleCards)));
   }
 }

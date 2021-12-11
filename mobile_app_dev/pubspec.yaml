@@ -52,7 +52,7 @@ dependencies:
   gap: ^2.0.0
 
   # Search Bar
-  # material_floating_search_bar: ^0.3.6
+  material_floating_search_bar: ^0.3.6
 
   # Settings UI
   settings_ui: ^1.0.0

@@ -30,7 +30,7 @@ class _BarsScreenState extends State<BarsScreen> {
 
     final List _titles = [
       "Teacher Directory",
-      "My Extracurriculars",
+      "My Extracurricular Activities",
       "My Planner",
       "My Home Page",
     ];
@@ -108,7 +108,7 @@ class _BarsScreenState extends State<BarsScreen> {
         activeColor: Theme.of(context).primaryColor,
         tabs: const <GButton>[
           GButton(icon: Icons.school, text: 'Teachers'),
-          GButton(icon: Icons.sports_football, text: 'Extracurriculars'),
+          GButton(icon: Icons.sports_football, text: 'Activities'),
           GButton(icon: Icons.calendar_today_sharp, text: 'Planner'),
           GButton(icon: Icons.home, text: 'Home')
         ],
