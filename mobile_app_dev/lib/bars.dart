@@ -28,7 +28,7 @@ class _BarsScreenState extends State<BarsScreen> {
       HomeScreen(),
     ];
 
-    final List _titles = [
+    final List<String> _titles = [
       "Teacher Directory",
       "My Extracurricular Activities",
       "My Planner",

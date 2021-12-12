@@ -15,7 +15,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(centerTitle: true, title: Text('My Settings')),
-        body: SettingsList(
+        body: SafeArea(
+            child: SettingsList(
           sections: [
             SettingsSection(
               titlePadding: EdgeInsets.all(20),
@@ -53,6 +54,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ],
             )
           ],
-        ));
+        )));
   }
 }

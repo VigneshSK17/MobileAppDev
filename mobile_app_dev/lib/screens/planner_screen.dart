@@ -40,7 +40,8 @@ class PlannerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TimePlanner(
+    return SafeArea(
+        child: TimePlanner(
       // time will be start at this hour on table
       startHour: 6,
       // time will be end at this hour on table
@@ -63,6 +64,6 @@ class PlannerScreen extends StatelessWidget {
       ],
       // List of task will be show on the time planner
       tasks: tasks,
-    );
+    ));
   }
 }
