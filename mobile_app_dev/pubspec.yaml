@@ -60,6 +60,15 @@ dependencies:
   # Planner UI
   time_planner: ^0.0.4
 
+  # Calendar UI
+  syncfusion_flutter_calendar: ^19.3.57
+
+  # Lots of UI to use
+  getwidget: ^2.0.4
+
+  # Time
+  intl: ^0.17.0
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2

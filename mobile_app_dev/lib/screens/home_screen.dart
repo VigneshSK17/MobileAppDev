@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:mobile_app_dev/widgets/home_calendar.dart';
+import 'package:mobile_app_dev/widgets/home_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,8 +16,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     changeOpacity0();
-    // changeOpacity1();
-    // changeOpacity2();
   }
 
   changeOpacity0() {
@@ -26,22 +27,12 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  changeOpacity1() {
-    Future.delayed(Duration(seconds: 2), () {
-      setState(() {
-        opacity = opacity == 0.0 ? 1.0 : 0.0;
-        changeOpacity1();
-      });
-    });
-  }
-
-  changeOpacity2() {
-    Future.delayed(Duration(seconds: 3), () {
-      setState(() {
-        opacity = opacity == 0.0 ? 1.0 : 0.0;
-        changeOpacity2();
-      });
-    });
+  getDate(var num) {
+    DateTime now = DateTime.now();
+    switch (num) {
+      case 0:
+        return DateFormat('EEEE, MMM dd').format(now);
+    }
   }
 
   double deviceHeight(BuildContext context) =>
@@ -66,14 +57,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     duration: Duration(seconds: 1),
                     child: Column(
                       children: <Widget>[
-                        Text('Welcome',
-                            style: TextStyle(fontSize: 35),
-                            textAlign: TextAlign.left),
+                        // TODO: NOTE: Use align when wanting to change alignment for text.
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text('Welcome!',
+                              style: TextStyle(fontSize: 35),
+                              textAlign: TextAlign.left),
+                        ),
                         SizedBox(height: 8),
-                        Text('12/11/2021',
+                        Text(getDate(0),
                             style: TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.w100),
-                            textAlign: TextAlign.left)
+                            textAlign: TextAlign.left),
+                        SizedBox(height: 16),
+                        homeSlider(context),
+                        Expanded(child: homeCalendar(context)),
                       ],
                     )))));
   }
