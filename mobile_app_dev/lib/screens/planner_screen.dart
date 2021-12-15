@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:time_planner/time_planner.dart';
 
 // TODO: Make the planner scalable (make function to add new tasks to planner & make planner based on time)
@@ -38,30 +39,31 @@ class PlannerScreen extends StatelessWidget {
     ),
   ];
 
+  plannerHeaders (DateTime date, var daysToFurthestEvent) {
+    List<TimePlannerTitle> titles = [];
+    for(var daysPastToday = 0; daysPastToday <= daysToFurthestEvent; daysPastToday++) {
+      titles.add(
+        TimePlannerTitle(
+          date: DateFormat.yMd('en_US').format(DateTime.now().add(Duration(days: daysPastToday))),
+          title: DateFormat.E('en_US').format(DateTime.now().add(Duration(days: daysPastToday)))
+        )
+      );
+    }
+    return titles;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: TimePlanner(
       // time will be start at this hour on table
-      startHour: 6,
+      startHour: 1,
       // time will be end at this hour on table
       endHour: 23,
       // each header is a column and a day
       // TODO: Set date using DateTime object.
-      headers: [
-        TimePlannerTitle(
-          date: "3/10/2021",
-          title: "sunday",
-        ),
-        TimePlannerTitle(
-          date: "3/11/2021",
-          title: "monday",
-        ),
-        TimePlannerTitle(
-          date: "3/12/2021",
-          title: "tuesday",
-        ),
-      ],
+      headers: plannerHeaders(DateTime.now(), 7),
       // List of task will be show on the time planner
       tasks: tasks,
     ));
