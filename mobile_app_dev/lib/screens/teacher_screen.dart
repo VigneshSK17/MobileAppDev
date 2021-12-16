@@ -29,7 +29,7 @@ class _TeacherScreenState extends State<TeacherScreen>
   Widget build(BuildContext context) {
     for (int i = 0; i < 10; i++) {
       exampleCards.add(
-        teacherCard2(testImage, 'Mrs. Joe Johnson', 'English', 1000,
+        teacherCard2(testImage, 'Mrs.', 'Joe', 'Johnson', 'English', 1000,
             'hi@gmail.com', 'joejohnson.weebly.com', context),
       );
     }
