@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-Card teacherCard2(var teacherImage, var teacherName, var teacherDept,
+Card teacherCard2(var teacherImage, var teacherTitle, var teacherFirstName, var teacherLastName, var teacherDept,
     int roomNum, var teacherEmail, var teacherWebsite, var context) {
   return Card(
       elevation: 2,
       child: Column(children: <Widget>[
         ListTile(
-          title: Text(teacherName),
+          title: Text(teacherTitle + " " + teacherFirstName + " " + teacherLastName),
           subtitle: Text(teacherDept + " | Room #" + roomNum.toString()),
         ),
         ButtonBar(alignment: MainAxisAlignment.start, children: [

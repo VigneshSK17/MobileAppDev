@@ -37,7 +37,39 @@ class _TeacherScreenState extends State<TeacherScreen>
     // TODO: Add search bar to search through the teachers Maybe add filters if time. Maybe use material_floating_search_bar package
     return SafeArea(
         child: Container(
-            child:
-                SingleChildScrollView(child: Column(children: exampleCards))));
+            child: SingleChildScrollView(
+                child: Column(children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 70,
+                    child: FloatingSearchBar(
+                      // onSubmitted:(query) {
+                      //   if(query == exampleCards[0].teacherFirstName){
+                      //
+                      //   }
+                      // },
+                      builder: (context, transition) {
+                        return ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Material(
+                            color: Colors.white,
+                            elevation: 4.0,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: Colors.accents.map((color) {
+                                return Container(height: 112, color: color);
+                              }).toList(),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                Container(child: SingleChildScrollView(child: Column(children: exampleCards)))
+        ])
+        )
+        )
+    );
+
   }
 }

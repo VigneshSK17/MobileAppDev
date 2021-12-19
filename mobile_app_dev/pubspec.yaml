@@ -62,6 +62,11 @@ dependencies:
 
   # Calendar UI
   syncfusion_flutter_calendar: ^19.3.57
+  calendar_view: ^0.0.3
+  flutter_neat_and_clean_calendar: ^0.2.3+11
+
+  # Date Picker UI
+  syncfusion_flutter_datepicker: ^19.3.59
 
   # Lots of UI to use
   getwidget: ^2.0.4

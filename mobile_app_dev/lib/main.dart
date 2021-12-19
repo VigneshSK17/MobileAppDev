@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'MAD App',
       theme: FlexColorScheme.light(scheme: FlexScheme.mango).toTheme,
       darkTheme: FlexColorScheme.dark(scheme: FlexScheme.mango).toTheme,
+      locale: const Locale('us'),
       initialRoute: '/BarsScreen',
       routes: {
         '/BarsScreen': (context) => BarsScreen()

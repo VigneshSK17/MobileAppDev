@@ -1,6 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:mobile_app_dev/widgets/planner/planner_fab.dart';
 import 'package:time_planner/time_planner.dart';
+
+// Helper Functions
+
+List<TimePlannerTitle> plannerHeaders (DateTime date, var daysToFurthestEvent) {
+  List<TimePlannerTitle> titles = [];
+  for(var daysPastToday = 0; daysPastToday <= daysToFurthestEvent; daysPastToday++) {
+    titles.add(
+        TimePlannerTitle(
+            date: DateFormat.yMd('en_US').format(DateTime.now().add(Duration(days: daysPastToday))),
+            title: DateFormat.E('en_US').format(DateTime.now().add(Duration(days: daysPastToday)))
+        )
+    );
+  }
+  return titles;
+}
+
 
 // TODO: Make the planner scalable (make function to add new tasks to planner & make planner based on time)
 class PlannerScreen extends StatelessWidget {
@@ -39,33 +56,23 @@ class PlannerScreen extends StatelessWidget {
     ),
   ];
 
-  plannerHeaders (DateTime date, var daysToFurthestEvent) {
-    List<TimePlannerTitle> titles = [];
-    for(var daysPastToday = 0; daysPastToday <= daysToFurthestEvent; daysPastToday++) {
-      titles.add(
-        TimePlannerTitle(
-          date: DateFormat.yMd('en_US').format(DateTime.now().add(Duration(days: daysPastToday))),
-          title: DateFormat.E('en_US').format(DateTime.now().add(Duration(days: daysPastToday)))
-        )
-      );
-    }
-    return titles;
-  }
-
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: TimePlanner(
-      // time will be start at this hour on table
-      startHour: 1,
-      // time will be end at this hour on table
-      endHour: 23,
-      // each header is a column and a day
-      // TODO: Set date using DateTime object.
-      headers: plannerHeaders(DateTime.now(), 7),
-      // List of task will be show on the time planner
-      tasks: tasks,
-    ));
+    return Scaffold(
+      body: SafeArea(
+          child: TimePlanner(
+        // time will be start at this hour on table
+        startHour: 1,
+        // time will be end at this hour on table
+        endHour: 23,
+        // each header is a column and a day
+        // TODO: Set date using DateTime object.
+        headers: plannerHeaders(DateTime.now(), 7),
+        // List of task will be show on the time planner
+        tasks: tasks,
+      )),
+      floatingActionButton: PlannerFab('blah', context),
+    );
   }
 }

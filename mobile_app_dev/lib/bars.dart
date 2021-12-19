@@ -5,6 +5,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'screens/ec_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/planner_screen.dart';
+import 'screens/planner_screen2.dart';
 import 'screens/settings_screen.dart';
 import 'screens/teacher_screen.dart';
 
@@ -24,7 +25,7 @@ class _BarsScreenState extends State<BarsScreen> {
     final List<Widget> _pages = [
       TeacherScreen(),
       ECScreen(),
-      PlannerScreen(),
+      PlannerScreen2(),
       HomeScreen(),
     ];
 
