@@ -39,7 +39,7 @@ dependencies:
 
   # Theming
   # Flex Color Scheme
-  flex_color_scheme: ^3.0.1
+  flex_color_scheme: ^4.1.1
 
   # Google Nav Bar
   # https://pub.dev/packages/google_nav_bar
@@ -73,6 +73,11 @@ dependencies:
 
   # Time
   intl: ^0.17.0
+
+  ## Firebase ##
+  firebase_core: ^1.10.6
+  firebase_auth: ^3.3.4
+  cloud_firestore: ^3.1.5
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
