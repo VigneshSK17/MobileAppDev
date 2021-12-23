@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mobile_app_dev/auth/auth_provider.dart';
 import 'package:mobile_app_dev/firebase_options.dart';
+import 'package:mobile_app_dev/screens/settings_screen.dart';
 
 import 'package:provider/provider.dart';
 
@@ -41,6 +42,10 @@ class MyApp extends StatelessWidget {
           darkTheme: FlexColorScheme.dark(scheme: FlexScheme.mango).toTheme,
           locale: const Locale('us'),
           initialRoute: BarsScreen.id,
+          routes: {
+            BarsScreen.id: (context) => BarsScreen(),
+            SettingsScreen.id: (context) => SettingsScreen()
+          }
           )
     );
   }
