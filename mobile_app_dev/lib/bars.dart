@@ -10,6 +10,8 @@ import 'screens/settings_screen.dart';
 import 'screens/teacher_screen.dart';
 
 class BarsScreen extends StatefulWidget {
+  static String id = '/';
+
   @override
   State<BarsScreen> createState() => _BarsScreenState();
 }
@@ -84,10 +86,7 @@ class _BarsScreenState extends State<BarsScreen> {
               tooltip: 'Account and App Settings',
               onPressed: () {
                 HapticFeedback.lightImpact();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SettingsScreen()),
-                );
+                Navigator.pushNamed(context, SettingsScreen.id);
               })),
       // bottomNavigationBar: BottomNavigationBar(
       //   onTap: selectedPage,
