@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:mobile_app_dev/auth/auth_provider.dart';
 import 'package:mobile_app_dev/firebase_options.dart';
 import 'package:mobile_app_dev/screens/settings_screen.dart';
+import 'package:mobile_app_dev/screens/signin_screen.dart';
 
 import 'package:provider/provider.dart';
 
@@ -41,10 +42,11 @@ class MyApp extends StatelessWidget {
           theme: FlexColorScheme.light(scheme: FlexScheme.mango).toTheme,
           darkTheme: FlexColorScheme.dark(scheme: FlexScheme.mango).toTheme,
           locale: const Locale('us'),
-          initialRoute: BarsScreen.id,
+          initialRoute: SignInScreen.id,
           routes: {
             BarsScreen.id: (context) => BarsScreen(),
-            SettingsScreen.id: (context) => SettingsScreen()
+            SettingsScreen.id: (context) => SettingsScreen(),
+            SignInScreen.id: (context) => SignInScreen()
           }
           )
     );

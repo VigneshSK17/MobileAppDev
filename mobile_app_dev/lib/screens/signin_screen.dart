@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class SignInScreen extends StatefulWidget {
+  static String id = '/SignIn';
+
   State<SignInScreen> createState() => _SignInScreenState();
 } 
 
