@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mobile_app_dev/firebase/auth_provider.dart';
 import 'package:mobile_app_dev/firebase_options.dart';
+import 'package:mobile_app_dev/screens/admin/admin_scaffold.dart';
 import 'package:mobile_app_dev/screens/admin/admin_screen.dart';
 import 'package:mobile_app_dev/screens/settings_screen.dart';
 import 'package:mobile_app_dev/screens/signin_screen.dart';
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
           theme: FlexColorScheme.light(scheme: FlexScheme.mango).toTheme,
           darkTheme: FlexColorScheme.dark(scheme: FlexScheme.mango).toTheme,
           locale: const Locale('us'),
-          home: AdminScreen(),
+          home: AdminScaffold(),
           // initialRoute: SignInScreen.id,
           // routes: {
           //   BarsScreen.id: (context) => BarsScreen(),
