@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gap/gap.dart';
+import 'package:mobile_app_dev/widgets/auth_screens/login_text_field.dart';
+import 'package:mobile_app_dev/widgets/auth_screens/rounded_button.dart';
 
 class SignInScreen extends StatefulWidget {
   static String id = '/SignIn';
@@ -10,6 +13,14 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen>{
   bool _isHidden = true;
   // TextEditingController textController = TextEditingController();
+
+  GestureDetector updateTextFieldState() {
+    return GestureDetector(
+        onTap: () => setState(() => _isHidden = !_isHidden),
+        child: Icon(_isHidden ? Icons.visibility_off : Icons.visibility)
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -22,75 +33,24 @@ class _SignInScreenState extends State<SignInScreen>{
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget> [
-              Container(
-                width: MediaQuery.of(context).size.width-30,
-                child: TextField(
-                  // controller: textController,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    labelText: 'Student ID',
-                    hintText: 'Enter your School ID'
-                  ),
-                enableSuggestions: false,
-                autocorrect: false,
-                ),
-              ),
+            children: [
+              LoginTextField(isUsername: true, updateTextField: GestureDetector(child: Flex(direction: Axis.vertical, children: [Gap(0)]))),
               SizedBox(
                 height: 30,
               ),
-              Container(
-                width: MediaQuery.of(context).size.width-30,
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    labelText: 'Password',
-                    hintText: 'Enter your password',
-                    suffix: GestureDetector(
-                      onTap: (){
-                        setState(() {
-                          _isHidden = !_isHidden;
-                        });
-                      },
-                      child: Icon(
-                        _isHidden ? Icons.visibility_off : Icons.visibility
-                      ),
-                    )
-                  ),
-                  obscureText: _isHidden,
-                  enableSuggestions: false,
-                  autocorrect: false,
-                ),
+              LoginTextField(isUsername: false, updateTextField: updateTextFieldState(), isHidden: _isHidden),
+              SizedBox(
+                height: 30,
+              ),
+              RoundedButton(
+                  text: 'Log In',
+                  press: () => print('Pressed Log In'),
+                  color: Theme.of(context).primaryColor,
+                  textColor: Theme.of(context).backgroundColor
               ),
             ]
           ),
         ), 
-        floatingActionButton: Container(
-          width: 150,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 160),
-              child: FloatingActionButton.extended(
-              onPressed: (){
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => BarsScreen()),
-                // );
-              }, 
-              label: Text(
-                'Log in',
-                style: TextStyle(
-                  fontSize: 20
-                  )
-                ),
-              ),
-            ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       )
     );
   }
