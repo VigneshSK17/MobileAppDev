@@ -48,8 +48,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 children: [
                   Text(
                       'School Event Calendar',
-                    style: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor),
-                  ),
+                    style: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor)),
                   homeCalendar(context),
                   const SizedBox(height: 16),
                   Divider(height: 10, thickness: 1, color: Theme.of(context).disabledColor),

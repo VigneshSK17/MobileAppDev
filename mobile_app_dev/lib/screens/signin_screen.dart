@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
+import 'package:mobile_app_dev/firebase/auth_provider.dart';
 import 'package:mobile_app_dev/widgets/auth_screens/login_text_field.dart';
 import 'package:mobile_app_dev/widgets/auth_screens/rounded_button.dart';
+import 'package:provider/provider.dart';
 
 class SignInScreen extends StatefulWidget {
   static String id = '/SignIn';
@@ -12,7 +14,8 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen>{
   bool _isHidden = true;
-  // TextEditingController textController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   GestureDetector updateTextFieldState() {
     return GestureDetector(
@@ -34,19 +37,33 @@ class _SignInScreenState extends State<SignInScreen>{
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              LoginTextField(isUsername: true, updateTextField: GestureDetector(child: Flex(direction: Axis.vertical, children: [Gap(0)]))),
+              LoginTextField(labelText: 'Email', updateTextField: GestureDetector(child: Flex(direction: Axis.vertical, children: [Gap(0)])), controller: emailController),
               SizedBox(
                 height: 30,
               ),
-              LoginTextField(isUsername: false, updateTextField: updateTextFieldState(), isHidden: _isHidden),
+              LoginTextField(labelText: 'Password', updateTextField: updateTextFieldState(), isHidden: _isHidden, controller: passwordController),
               SizedBox(
                 height: 30,
               ),
               RoundedButton(
                   text: 'Log In',
-                  press: () => print('Pressed Log In'),
                   color: Theme.of(context).primaryColor,
-                  textColor: Theme.of(context).backgroundColor
+                  textColor: Theme.of(context).backgroundColor,
+                  press: () async {
+                    String email = emailController.text.trim();
+                    String password = passwordController.text.trim();
+
+                    if(email.isEmpty){
+                      print("Email is Empty");
+                    } else if(password.isEmpty){
+                        print("Password is Empty");
+                    } else {
+                      context.read<AuthenticationProvider>().signIn(
+                        email: email,
+                        password: password,
+                      );
+                    }
+                  },
               ),
             ]
           ),
