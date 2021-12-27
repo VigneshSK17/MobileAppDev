@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobile_app_dev/screens/admin/add_student_screen.dart';
+import 'package:mobile_app_dev/screens/admin/student_search_screen.dart';
 
 import 'admin_screen.dart';
 
@@ -18,8 +19,8 @@ class _AdminScaffoldState extends State<AdminScaffold> {
   Widget build(BuildContext context) {
     final List<Widget> _pages = [
       AdminScreen(),
-      CreateStudent(),
-      AdminScreen(),
+      CreateStudentScreen(),
+      StudentSearchScreen(),
       AdminScreen(),
       AdminScreen(),
       AdminScreen(),

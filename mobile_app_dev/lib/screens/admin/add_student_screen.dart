@@ -6,12 +6,12 @@ import 'package:mobile_app_dev/widgets/auth_screens/login_text_field.dart';
 import 'package:mobile_app_dev/widgets/auth_screens/rounded_button.dart';
 import 'package:provider/provider.dart';
 
-class CreateStudent extends StatefulWidget {
+class CreateStudentScreen extends StatefulWidget {
   @override
-  _CreateStudentState createState() => _CreateStudentState();
+  _CreateStudentScreenState createState() => _CreateStudentScreenState();
 }
 
-class _CreateStudentState extends State<CreateStudent> {
+class _CreateStudentScreenState extends State<CreateStudentScreen> {
 
   bool _isHidden = true;
    TextEditingController email = TextEditingController();
@@ -26,6 +26,8 @@ class _CreateStudentState extends State<CreateStudent> {
         child: Icon(_isHidden ? Icons.visibility_off : Icons.visibility)
     );
   }
+
+  bool _isClear = true;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +57,7 @@ class _CreateStudentState extends State<CreateStudent> {
                       SizedBox(
                         height: 10,
                       ),
-                      LoginTextField(labelText: 'School Name', updateTextField: GestureDetector(child: Flex(direction: Axis.vertical, children: [Gap(0)])), isHidden: _isHidden, controller: schoolName),
+                      LoginTextField(labelText: 'School Name', updateTextField: GestureDetector(child: Flex(direction: Axis.vertical, children: [Gap(0)])), controller: schoolName),
                       SizedBox(
                         height: 10,
                       ),
@@ -64,11 +66,26 @@ class _CreateStudentState extends State<CreateStudent> {
                         color: Theme.of(context).primaryColor,
                         textColor: Theme.of(context).backgroundColor,
                         press: () async {
+                          if(!email.text.trim().contains('@')) {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text('The inputted email address is not valid, please try again'),
+                              duration: Duration(seconds: 2),
+                            ));
+                            email.clear();
+                            _isClear = false;
+                          }
+                          if(password.text.trim().length < 5) {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text('The inputted password is shorter than 6 characters, please try again'),
+                              duration: Duration(seconds: 2),
+                            ));
+                            password.clear();
+                          }
                           String emailStr = email.text.trim();
                           String passwordStr = password.text.trim();
                           String firstNameStr = firstName.text.trim();
                           String lastNameStr = lastName.text.trim();
-                          String schoolnameStr = schoolName.text.trim();
+                          String schoolNameStr = schoolName.text.trim();
                           String roleStr = 'student';
 
                           context.read<AuthenticationProvider>().signUp(
@@ -76,9 +93,22 @@ class _CreateStudentState extends State<CreateStudent> {
                               password: passwordStr,
                               firstName: firstNameStr,
                               lastName: lastNameStr,
-                              schoolName: schoolnameStr,
+                              schoolName: schoolNameStr,
                               role: roleStr
                           );
+
+                          if(_isClear) {
+                            email.clear();
+                            password.clear();
+                            firstName.clear();
+                            lastName.clear();
+                            schoolName.clear();
+                          }
+
+                          FocusScopeNode currentFocus = FocusScope.of(context);
+                          if (!currentFocus.hasPrimaryFocus) {
+                            currentFocus.unfocus();
+                          }
                         },
                       ),
                     ]

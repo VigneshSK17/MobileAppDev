@@ -21,6 +21,7 @@ class AuthenticationProvider {
           'password': password,
           'firstName': firstName,
           'lastName': lastName,
+          'schoolName': schoolName,
           'role': role
         });
       });
