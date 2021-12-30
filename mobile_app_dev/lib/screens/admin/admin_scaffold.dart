@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mobile_app_dev/screens/admin/add_events_widget.dart';
 import 'package:mobile_app_dev/screens/admin/add_student_screen.dart';
+import 'package:mobile_app_dev/screens/admin/school_events_screen.dart';
 import 'package:mobile_app_dev/screens/admin/student_search_screen.dart';
 
 import 'admin_screen.dart';
@@ -21,6 +23,8 @@ class _AdminScaffoldState extends State<AdminScaffold> {
       AdminScreen(),
       CreateStudentScreen(),
       StudentSearchScreen(),
+      AddEventsWidget(context),
+      AdminScreen(),
       AdminScreen(),
       AdminScreen(),
       AdminScreen(),
@@ -32,7 +36,9 @@ class _AdminScaffoldState extends State<AdminScaffold> {
       "Dashboard",
       "Add Students",
       "Student Search",
-      "School Events",
+      "Add Events",
+      "Edit Events",
+      "Delete Events",
       "Lunch Menu",
       "Extracurriculars",
       "Add Teachers",
@@ -102,24 +108,51 @@ class _AdminScaffoldState extends State<AdminScaffold> {
                 )
               ],
             ),
-            ListTile(
+            ExpansionTile(
               title: const Text('School Events'),
-              onTap: () =>
-              {
-                setState(() {
-                  _selectedIndex = 3;
-                  _titleString = _titles[3];
-                }),
-                Navigator.pop(context)
-              },
+              children: [
+                ListTile(
+                  title: const Text('Add Events'),
+                  onTap: () =>
+                  {
+                    setState(() {
+                      _selectedIndex = 3;
+                      _titleString = _titles[3];
+                    }),
+                    Navigator.pop(context)
+                  },
+                ),
+                ListTile(
+                  title: const Text('Edit Events'),
+                  onTap: () =>
+                  {
+                    setState(() {
+                      _selectedIndex = 4;
+                      _titleString = _titles[4];
+                    }),
+                    Navigator.pop(context)
+                  },
+                ),
+                ListTile(
+                  title: const Text('Delete Events'),
+                  onTap: () =>
+                  {
+                    setState(() {
+                      _selectedIndex = 5;
+                      _titleString = _titles[5];
+                    }),
+                    Navigator.pop(context)
+                  },
+                )
+              ],
             ),
             ListTile(
               title: const Text('Lunch Menu'),
               onTap: () =>
               {
                 setState(() {
-                  _selectedIndex = 4;
-                  _titleString = _titles[4];
+                  _selectedIndex = 6;
+                  _titleString = _titles[6];
                 }),
                 Navigator.pop(context)
               },
@@ -129,8 +162,8 @@ class _AdminScaffoldState extends State<AdminScaffold> {
               onTap: () =>
               {
                 setState(() {
-                  _selectedIndex = 5;
-                  _titleString = _titles[5];
+                  _selectedIndex = 7;
+                  _titleString = _titles[7];
                 }),
                 Navigator.pop(context)
               },
@@ -143,8 +176,8 @@ class _AdminScaffoldState extends State<AdminScaffold> {
                   onTap: () =>
                   {
                     setState(() {
-                      _selectedIndex = 6;
-                      _titleString = _titles[6];
+                      _selectedIndex = 8;
+                      _titleString = _titles[8];
                     }),
                     Navigator.pop(context)
                   },
@@ -154,8 +187,8 @@ class _AdminScaffoldState extends State<AdminScaffold> {
                   onTap: () =>
                   {
                     setState(() {
-                      _selectedIndex = 7;
-                      _titleString = _titles[7];
+                      _selectedIndex = 9;
+                      _titleString = _titles[9];
                     }),
                     Navigator.pop(context)
                   },
