@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobile_app_dev/screens/admin/add_events_widget.dart';
 import 'package:mobile_app_dev/screens/admin/add_student_screen.dart';
+import 'package:mobile_app_dev/screens/admin/add_teacher_screen.dart';
 import 'package:mobile_app_dev/screens/admin/school_events_screen.dart';
 import 'package:mobile_app_dev/screens/admin/student_search_screen.dart';
+import 'package:mobile_app_dev/screens/admin/teacher_search_screen.dart';
 
 import 'admin_screen.dart';
 
@@ -28,8 +30,8 @@ class _AdminScaffoldState extends State<AdminScaffold> {
       AdminScreen(),
       AdminScreen(),
       AdminScreen(),
-      AdminScreen(),
-      AdminScreen(),
+      CreateTeacherScreen(),
+      TeacherSearchScreen(),
     ];
 
     final List<String> _titles = [

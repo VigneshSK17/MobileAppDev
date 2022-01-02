@@ -7,12 +7,12 @@ import 'package:mobile_app_dev/helperFunctions/alert_widget.dart';
 import 'package:mobile_app_dev/widgets/auth_screens/login_text_field.dart';
 import 'package:mobile_app_dev/widgets/auth_screens/rounded_button.dart';
 
-class StudentSearchScreen extends StatefulWidget {
+class TeacherSearchScreen extends StatefulWidget {
   @override
-  _StudentSearchScreenState createState() => _StudentSearchScreenState();
+  _TeacherSearchScreenState createState() => _TeacherSearchScreenState();
 }
 
-class _StudentSearchScreenState extends State<StudentSearchScreen> {
+class _TeacherSearchScreenState extends State<TeacherSearchScreen> {
 
    TextEditingController emailController = TextEditingController();
 
@@ -29,16 +29,16 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
       .then((value) => {
         Navigator.pop(context),
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Student Deleted'),
+          content: Text('Teacher Deleted'),
           duration: Duration(seconds: 1),
         ))
       }).catchError((error) => {
         Navigator.pop(context),
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Failed to delete student.'),
+          content: Text('Failed to delete teacher.'),
           duration: Duration(seconds: 1),
         )),
-        print('Failed to delete student: $error')
+        print('Failed to delete teacher: $error')
       });
     
       try {
@@ -50,7 +50,7 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
       }
   }
 
-  // TODO: Allow for admin to only search for students in own school. Look at QuerySnapshot also.
+  // TODO: Allow for admin to only search for teachers in own school. Look at QuerySnapshot also.
   void getCurrentUserSchoolName() {
     final FirebaseAuth auth = FirebaseAuth.instance;
     final User? user = auth.currentUser;
@@ -82,10 +82,10 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
                     press: () async {
                       String userEmail = emailController.text.trim();
                       
-                      final QuerySnapshot snap = await FirebaseFirestore.instance.collection('users').where('email', isEqualTo: userEmail).where('role', isEqualTo: 'student').get();
+                      final QuerySnapshot snap = await FirebaseFirestore.instance.collection('users').where('email', isEqualTo: userEmail).where('role', isEqualTo: 'teacher').get();
                       if(snap.size == 0) {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text('No student can be found with this email. Please try again'),
+                          content: Text('No teacher can be found with this email. Please try again'),
                           duration: Duration(seconds: 1),
                         ));
                         emailController.clear();
@@ -114,7 +114,7 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
                           icon: Icon(Icons.delete_forever),
                           onPressed: () {
                             showDialog(context: context, 
-                              builder: (context) => AlertWidget('Deleting $firstName $lastName', 'Are you sure you want to delete this student?',
+                              builder: (context) => AlertWidget('Deleting $firstName $lastName', 'Are you sure you want to delete this teacher?',
                                 () => deleteUser(),
                                 context
                             ));
@@ -122,7 +122,7 @@ class _StudentSearchScreenState extends State<StudentSearchScreen> {
                             emailController.clear();
                           },
                         ),
-                        // TODO: Add functionality for editing student info
+                        // TODO: Add functionality for editing teacher info
                         // IconButton(
                         //     icon: Icon(Icons.link),
                         //     onPressed: () {

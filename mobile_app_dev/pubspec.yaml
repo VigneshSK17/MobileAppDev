@@ -54,6 +54,9 @@ dependencies:
   # Search Bar
   material_floating_search_bar: ^0.3.6
 
+  # Expandable UI
+  expandable: ^5.0.1
+
   # Settings UI
   settings_ui: ^1.0.0
 
