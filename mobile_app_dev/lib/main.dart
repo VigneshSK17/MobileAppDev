@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
           theme: FlexColorScheme.light(scheme: FlexScheme.mango).toTheme,
           darkTheme: FlexColorScheme.dark(scheme: FlexScheme.mango).toTheme,
           locale: const Locale('us'),
-          home: AdminScaffold(),
+          home: BarsScreen(),
           // initialRoute: SignInScreen.id,
           // routes: {
           //   BarsScreen.id: (context) => BarsScreen(),

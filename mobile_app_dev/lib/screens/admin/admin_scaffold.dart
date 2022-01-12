@@ -6,6 +6,7 @@ import 'package:mobile_app_dev/screens/admin/add_teacher_screen.dart';
 import 'package:mobile_app_dev/screens/admin/school_events_screen.dart';
 import 'package:mobile_app_dev/screens/admin/student_search_screen.dart';
 import 'package:mobile_app_dev/screens/admin/teacher_search_screen.dart';
+import 'package:mobile_app_dev/screens/ec_screen.dart';
 
 import 'admin_screen.dart';
 
@@ -166,8 +167,9 @@ class _AdminScaffoldState extends State<AdminScaffold> {
                 setState(() {
                   _selectedIndex = 7;
                   _titleString = _titles[7];
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ECScreen()));
                 }),
-                Navigator.pop(context)
+                // Navigator.pop(context)
               },
             ),
             ExpansionTile(
