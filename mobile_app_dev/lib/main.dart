@@ -37,14 +37,14 @@ class MyApp extends StatelessWidget {
         ),
         StreamProvider(
           create: (context) => context.read<AuthenticationProvider>().authState, initialData: null,
-        )
+        ),
       ],
       child: MaterialApp(
           title: 'MAD App',
           theme: FlexColorScheme.light(scheme: FlexScheme.mango).toTheme,
           darkTheme: FlexColorScheme.dark(scheme: FlexScheme.mango).toTheme,
           locale: const Locale('us'),
-          home: BarsScreen(),
+          home: AdminScaffold(),
           // initialRoute: SignInScreen.id,
           // routes: {
           //   BarsScreen.id: (context) => BarsScreen(),
