@@ -1035,6 +1035,6 @@ class AppointmentJson with Diagnosticable {
     'startTime': startTime.toIso8601String(),
     'endTime': endTime.toIso8601String(),
     'menuItem': subject,
-    'color': color.value
+    'color': color.toString()
   };
 }
